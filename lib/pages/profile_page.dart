@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktokapp/pages/profile_edit_user.dart';
 import 'package:tiktokapp/widgets/profile_page_tab1.dart';
 import 'package:tiktokapp/widgets/profile_page_tab2.dart';
 import 'package:tiktokapp/widgets/profile_page_tab3.dart';
@@ -128,14 +129,22 @@ class ProfilePage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                  child: const Text("Edit profile",
-                      style: TextStyle(color: Colors.black, fontSize: 20)),
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.shade300),
-                      borderRadius: BorderRadius.circular(5)),
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => const ProfilePageEditUser()),
+                    ),
+                  ),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 15, horizontal: 40),
+                    child: const Text("Edit profile",
+                        style: TextStyle(color: Colors.black, fontSize: 20)),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey.shade300),
+                        borderRadius: BorderRadius.circular(5)),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),

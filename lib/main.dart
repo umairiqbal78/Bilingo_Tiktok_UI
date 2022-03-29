@@ -2,8 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktokapp/navigation_container.dart';
-import 'package:tiktokapp/pages/home_page.dart';
-import 'package:tiktokapp/pages/login.dart';
+
 import 'package:tiktokapp/pages/signup.dart';
 
 late List<CameraDescription> cameras;
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: GoogleFonts.varelaRoundTextTheme(),
       ),
-      home: const NavigationContainer(),
+      home: const SignUp(),
       routes: {
         '/main': (context) => const NavigationContainer(),
       },

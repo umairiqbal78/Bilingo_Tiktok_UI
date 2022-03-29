@@ -42,6 +42,9 @@ dependencies:
   flutter_svg: ^1.0.3
   camera: ^0.9.4+17
   page_view_indicators: ^2.0.0
+  flutter_intl: ^0.0.1
+  intl: ^0.17.0
+  grouped_list: ^4.2.0
 
 dev_dependencies:
   flutter_test:

@@ -15,6 +15,7 @@ class _HomeSideBarState extends State<HomeSideBar>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   bool _show = false;
+  bool _liked = false;
 
   @override
   void initState() {
@@ -44,10 +45,32 @@ class _HomeSideBarState extends State<HomeSideBar>
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _profileImageButton(widget.video.postedBy.profileImageUrl),
-          _sideBarItem('heart', widget.video.likes, style),
-          _sideBarItem('comment', widget.video.comments, style),
           GestureDetector(
-              child: _sideBarItem('share', 'share', style),
+            child: _sideBarItem(
+              'heart',
+              widget.video.likes,
+              style,
+              _liked ? Colors.pink : Colors.white.withOpacity(0.75),
+            ),
+            onTap: () {
+              setState(() {
+                _liked = !_liked;
+              });
+            },
+          ),
+          _sideBarItem(
+            'comment',
+            widget.video.comments,
+            style,
+            Colors.white.withOpacity(0.75),
+          ),
+          GestureDetector(
+              child: _sideBarItem(
+                'share',
+                'share',
+                style,
+                Colors.white.withOpacity(0.75),
+              ),
               onTap: () {
                 _showModalBottomSheet();
                 setState(() {});
@@ -319,12 +342,12 @@ class _HomeSideBarState extends State<HomeSideBar>
     );
   }
 
-  _sideBarItem(String iconName, String label, TextStyle style) {
+  _sideBarItem(String iconName, String label, TextStyle style, Color color) {
     return Column(
       children: [
         Image.asset(
           'assets/$iconName.png',
-          color: Colors.white.withOpacity(0.75),
+          color: color,
         ),
         const SizedBox(
           height: 5,

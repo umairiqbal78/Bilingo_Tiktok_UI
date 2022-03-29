@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktokapp/pages/Sign_up_email.dart';
 import 'package:tiktokapp/pages/login.dart';
 
 class SignUp extends StatefulWidget {
@@ -127,28 +128,34 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   height: 25.0,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(3.0)),
-                  height: 35,
-                  width: MediaQuery.of(context).size.width - 20,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.mail_rounded,
-                        color: Colors.black,
-                      ),
-                      SizedBox(width: MediaQuery.of(context).size.width / 12),
-                      Text("Use phone or email",
-                          style:
-                              Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Colors.grey[800],
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                    ],
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const SignUpWithEmail()))),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(3.0)),
+                    height: 35,
+                    width: MediaQuery.of(context).size.width - 20,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.mail_rounded,
+                          color: Colors.black,
+                        ),
+                        SizedBox(width: MediaQuery.of(context).size.width / 12),
+                        Text("Use phone or email",
+                            style:
+                                Theme.of(context).textTheme.bodyText2!.copyWith(
+                                      color: Colors.grey[800],
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(

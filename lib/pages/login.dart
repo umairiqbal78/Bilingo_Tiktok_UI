@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tiktokapp/navigation_container.dart';
+import 'package:tiktokapp/pages/login_with_email.dart';
 import 'package:tiktokapp/pages/signup.dart';
 
 class LoginPage extends StatelessWidget {
@@ -40,9 +41,15 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.10,
               ),
-              //fields of sign ups
-              _buildSocialMediaContainers(
-                  context, 'person', 'Use phone / email / username'),
+              //fields of sign in
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginWithEmail())),
+                child: _buildSocialMediaContainers(
+                    context, 'person', 'Use phone / email / username'),
+              ),
               _buildSocialMediaContainers(
                   context, 'facebook', 'Log in with Facebook'),
               _buildSocialMediaContainers(
@@ -95,46 +102,39 @@ class LoginPage extends StatelessWidget {
       BuildContext context, String imageName, String label) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: GestureDetector(
-        onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const NavigationContainer())),
-        child: Container(
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(3.0)),
-          height: 35,
-          width: MediaQuery.of(context).size.width - 20,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Image.asset(
-                    'assets/$imageName.png',
-                  ),
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey),
+            borderRadius: BorderRadius.circular(3.0)),
+        height: 35,
+        width: MediaQuery.of(context).size.width - 20,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Image.asset(
+                  'assets/$imageName.png',
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width * .05),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(label,
-                          style:
-                              Theme.of(context).textTheme.bodyText2!.copyWith(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  )),
-                    ],
-                  ),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * .05),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(label,
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            )),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
