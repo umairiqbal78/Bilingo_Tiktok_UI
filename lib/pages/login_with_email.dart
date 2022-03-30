@@ -4,16 +4,17 @@ import 'package:tiktokapp/pages/login.dart';
 import 'package:tiktokapp/pages/signup.dart';
 
 class LoginWithEmail extends StatelessWidget {
-  const LoginWithEmail({Key? key}) : super(key: key);
+  LoginWithEmail({Key? key}) : super(key: key);
 
+  final _formKey = GlobalKey<FormState>();
+  final RegExp emailRegex = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+  final _passwordFieldKey = GlobalKey<FormFieldState<String>>();
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-    final RegExp emailRegex = RegExp(
-        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
-    final _passwordFieldKey = GlobalKey<FormFieldState<String>>();
     return Scaffold(
-        body: Center(
+        body: SingleChildScrollView(
+      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.20),
       child: Form(
         key: _formKey,
         autovalidateMode: AutovalidateMode.disabled,

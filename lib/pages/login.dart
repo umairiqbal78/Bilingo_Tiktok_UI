@@ -43,10 +43,8 @@ class LoginPage extends StatelessWidget {
               ),
               //fields of sign in
               GestureDetector(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const LoginWithEmail())),
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginWithEmail())),
                 child: _buildSocialMediaContainers(
                     context, 'person', 'Use phone / email / username'),
               ),

@@ -132,7 +132,7 @@ class _SignUpState extends State<SignUp> {
                   onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => const SignUpWithEmail()))),
+                          builder: ((context) => SignUpWithEmail()))),
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),

@@ -11,6 +11,7 @@ class PrivateInboxPage extends StatefulWidget {
 }
 
 class _PrivateInboxPageState extends State<PrivateInboxPage> {
+  String? fieldtextstring;
   List<Message> messages = [
     Message(
       text: 'Hi',
@@ -274,6 +275,7 @@ class _PrivateInboxPageState extends State<PrivateInboxPage> {
                             text: text, date: DateTime.now(), isSentByMe: true);
                         setState(() {
                           messages.add(message);
+                          fieldtextstring = text;
                           clearText();
                         });
                       },
@@ -282,9 +284,21 @@ class _PrivateInboxPageState extends State<PrivateInboxPage> {
                 ),
                 Expanded(
                     flex: 1,
-                    child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Image.asset('assets/inbox_send.png')))
+                    child: GestureDetector(
+                      onTap: () {
+                        final message = Message(
+                            text: fieldText.text,
+                            date: DateTime.now(),
+                            isSentByMe: true);
+                        setState(() {
+                          messages.add(message);
+                          clearText();
+                        });
+                      },
+                      child: Container(
+                          alignment: Alignment.centerLeft,
+                          child: Image.asset('assets/inbox_send.png')),
+                    ))
               ],
             ),
           )

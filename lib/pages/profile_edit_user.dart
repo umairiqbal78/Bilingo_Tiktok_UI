@@ -56,7 +56,7 @@ class ProfilePageEditUser extends StatelessWidget {
                                 padding: EdgeInsets.all(4.0),
                                 child: Image.asset(
                                   "assets/camera.png",
-                                  color: Colors.white,
+                                  color: Colors.white.withOpacity(0.7),
                                 ),
                               ),
                               backgroundColor: Colors.transparent,
